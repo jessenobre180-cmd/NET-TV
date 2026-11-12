@@ -1,0 +1,567 @@
+import { Movie, Series, LiveChannel, AdminStats, StreamingServer } from '../src/types';
+
+export const initialServers: StreamingServer[] = [
+  {
+    id: 'srv-1',
+    name: 'CDN Principal Brasil (São Paulo - SP1)',
+    baseUrl: 'https://sp1.cdn.nettv.internal',
+    region: 'América do Sul (Brasil)',
+    status: 'online',
+    pingMs: 14,
+    isDefault: true,
+    type: 'cdn',
+    addedAt: '2026-01-01'
+  },
+  {
+    id: 'srv-2',
+    name: 'Edge Sul Baixa Latência (Curitiba - CTB1)',
+    baseUrl: 'https://ctb1.edge.nettv.internal',
+    region: 'América do Sul (Sul)',
+    status: 'online',
+    pingMs: 22,
+    isDefault: false,
+    type: 'cdn',
+    addedAt: '2026-01-10'
+  },
+  {
+    id: 'srv-3',
+    name: 'Global Cloud Backup (Miami - MIA-US)',
+    baseUrl: 'https://us-east.backup.nettv.internal',
+    region: 'América do Norte (EUA)',
+    status: 'online',
+    pingMs: 48,
+    isDefault: false,
+    type: 'backup',
+    addedAt: '2026-01-15'
+  },
+  {
+    id: 'srv-4',
+    name: 'Servidor Europa CDN (Frankfurt - FRA1)',
+    baseUrl: 'https://fra.eu.nettv.internal',
+    region: 'Europa Central',
+    status: 'online',
+    pingMs: 115,
+    isDefault: false,
+    type: 'hls',
+    addedAt: '2026-02-01'
+  }
+];
+
+export const initialMovies: Movie[] = [
+  {
+    id: 'mov-1',
+    title: 'Cyberpunk 2099: Neon Horizon',
+    originalTitle: 'Neon Horizon: Origins',
+    synopsis: 'Em uma megalópole hiperconectada do futuro, um ex-agente cibernético descobre uma conspiração de inteligência artificial que ameaça extinguir a consciência humana.',
+    year: 2025,
+    genre: ['Ficção científica', 'Ação', 'Suspense'],
+    ageRating: '16',
+    duration: '2h 18m',
+    durationMinutes: 138,
+    rating: 9.2,
+    posterUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg',
+    backdropUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg',
+    videoUrl: '/videos/scifi_stream.mp4',
+    trailerUrl: '/videos/scifi_stream.mp4',
+    featured: true,
+    cast: ['Alex Vance', 'Kaelen Rhyse', 'Maya Chen', 'Elias Thorne'],
+    director: 'Denis Villeneuve-Silva',
+    views: 148200,
+    addedAt: '2026-02-15'
+  },
+  {
+    id: 'mov-2',
+    title: "Shadow's Edge: Operação Sombra",
+    originalTitle: "Shadow's Edge",
+    synopsis: 'Sem pistas, sem aliados e jurado de morte pelas maiores organizações de inteligência do mundo. Um operador tático precisa cruzar o submundo europeu em uma corrida mortal.',
+    year: 2025,
+    genre: ['Ação', 'Suspense', 'Drama'],
+    ageRating: '16',
+    duration: '1h 54m',
+    durationMinutes: 114,
+    rating: 8.8,
+    posterUrl: '/src/assets/images/movie_poster_action_1794036937639.jpg',
+    backdropUrl: '/src/assets/images/movie_poster_action_1794036937639.jpg',
+    videoUrl: '/videos/action_stream.mp4',
+    trailerUrl: '/videos/action_stream.mp4',
+    featured: true,
+    cast: ['Michael Fassbender', 'Ana de Armas', 'Idris Elba'],
+    director: 'Elias Thorne',
+    views: 124500,
+    addedAt: '2026-03-01'
+  },
+  {
+    id: 'mov-3',
+    title: 'A Lenda de Sintel',
+    originalTitle: 'Sintel: The Dragon Quest',
+    synopsis: 'Uma jovem guerreira solitária viaja por terras desoladas enfrentando feras colossais e desafios impossíveis para resgatar seu pequeno companheiro dragão.',
+    year: 2024,
+    genre: ['Aventura', 'Fantasia', 'Animação'],
+    ageRating: '12',
+    duration: '1h 42m',
+    durationMinutes: 102,
+    rating: 8.9,
+    posterUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg',
+    backdropUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg',
+    videoUrl: '/videos/fantasy_stream.mp4',
+    trailerUrl: '/videos/fantasy_stream.mp4',
+    featured: false,
+    cast: ['Halina Reijn', 'Thom Hoffman'],
+    director: 'Colin Levy',
+    views: 95400,
+    addedAt: '2026-01-20'
+  },
+  {
+    id: 'mov-4',
+    title: 'A Vingança do Coelho Selvagem',
+    originalTitle: 'Big Buck: Forest Retribution',
+    synopsis: 'Quando três pequenos roedores travessos decidem aterrorizar as criaturas indefesas da floresta, um coelho gigante e bondoso decide impor a paz com muito bom humor.',
+    year: 2024,
+    genre: ['Comédia', 'Animação', 'Aventura'],
+    ageRating: 'L',
+    duration: '1h 30m',
+    durationMinutes: 90,
+    rating: 8.5,
+    posterUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&auto=format&fit=crop&q=80',
+    backdropUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600&auto=format&fit=crop&q=80',
+    videoUrl: '/videos/scifi_stream.mp4',
+    trailerUrl: '/videos/scifi_stream.mp4',
+    featured: false,
+    cast: ['Sacha Goedegebure', 'Ton Roosendaal'],
+    director: 'Sacha Goedegebure',
+    views: 89000,
+    addedAt: '2026-01-10'
+  },
+  {
+    id: 'mov-5',
+    title: 'Elephants Dream: A Máquina Viva',
+    originalTitle: 'Elephants Dream: Genesis',
+    synopsis: 'Dois homens exploram as engrenagens labirínticas de uma máquina infinita que reflete os medos e aspirações da mente humana.',
+    year: 2024,
+    genre: ['Ficção científica', 'Suspense', 'Drama'],
+    ageRating: '14',
+    duration: '1h 38m',
+    durationMinutes: 98,
+    rating: 8.4,
+    posterUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80',
+    backdropUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600&auto=format&fit=crop&q=80',
+    videoUrl: '/videos/scifi_stream.mp4',
+    featured: false,
+    cast: ['Tygo Gernandt', 'Cas Jansen'],
+    director: 'Bassam Kurdali',
+    views: 64200,
+    addedAt: '2026-02-05'
+  },
+  {
+    id: 'mov-6',
+    title: 'Velocidade Sem Limites: Rota 99',
+    originalTitle: 'Speed Odyssey: Route 99',
+    synopsis: 'Pilotos clandestinos se enfrentam na maior e mais perigosa corrida de carros modificados através de desertos e passagens nas montanhas.',
+    year: 2025,
+    genre: ['Ação', 'Aventura'],
+    ageRating: '14',
+    duration: '1h 50m',
+    durationMinutes: 110,
+    rating: 8.6,
+    posterUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&auto=format&fit=crop&q=80',
+    backdropUrl: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&auto=format&fit=crop&q=80',
+    videoUrl: '/videos/action_stream.mp4',
+    featured: false,
+    cast: ['Marcus Cole', 'Dominic T.', 'Sarah Connor'],
+    director: 'Justin Lin',
+    views: 112000,
+    addedAt: '2026-02-28'
+  },
+  {
+    id: 'mov-7',
+    title: 'Planeta Selvagem: Forças da Natureza',
+    originalTitle: 'Wild Planet: Wildfires & Oceans',
+    synopsis: 'Um documentário visualmente estarrecedor narrando a resiliência dos ecossistemas mais extremos da Terra frente a tempestades e vulcões.',
+    year: 2025,
+    genre: ['Documentários', 'Aventura'],
+    ageRating: 'L',
+    duration: '1h 45m',
+    durationMinutes: 105,
+    rating: 9.3,
+    posterUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80',
+    backdropUrl: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600&auto=format&fit=crop&q=80',
+    videoUrl: '/videos/fantasy_stream.mp4',
+    featured: false,
+    cast: ['David Attenborough', 'Morgan Freeman'],
+    director: 'Alastair Fothergill',
+    views: 78500,
+    addedAt: '2026-01-15'
+  },
+  {
+    id: 'mov-8',
+    title: 'Zona de Impacto: Fogo Cruzado',
+    originalTitle: 'Impact Zone: Blazes',
+    synopsis: 'Uma equipe de bombeiros de elite luta contra o maior incêndio florestal da história em uma corrida contra o tempo para salvar um vilarejo.',
+    year: 2024,
+    genre: ['Ação', 'Drama', 'Suspense'],
+    ageRating: '16',
+    duration: '2h 02m',
+    durationMinutes: 122,
+    rating: 8.7,
+    posterUrl: 'https://images.unsplash.com/photo-1542281286-9e0a16bb7366?w=800&auto=format&fit=crop&q=80',
+    backdropUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1600&auto=format&fit=crop&q=80',
+    videoUrl: '/videos/action_stream.mp4',
+    featured: false,
+    cast: ['Josh Brolin', 'Miles Teller', 'Jennifer Connelly'],
+    director: 'Joseph Kosinski',
+    views: 89300,
+    addedAt: '2026-02-18'
+  }
+];
+
+export const initialSeries: Series[] = [
+  {
+    id: 'ser-1',
+    title: 'The Iron Citadel: Crônicas do Norte',
+    synopsis: 'Em uma fortaleza ancestral isolada nas cordilheiras geladas, dinastias rivais travam guerras políticas, traições sangrentas e disputam o controle do fogo secreto.',
+    year: 2025,
+    genre: ['Fantasia', 'Drama', 'Aventura'],
+    ageRating: '18',
+    seasonsCount: 2,
+    totalEpisodes: 8,
+    rating: 9.4,
+    posterUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg',
+    backdropUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg',
+    featured: true,
+    cast: ['Alexander V.', 'Helena Rostova', 'Kaelen Thorne', 'Valerie Stone'],
+    creator: 'George R. Martin-Silva',
+    views: 312000,
+    addedAt: '2026-01-05',
+    seasons: [
+      {
+        seasonNumber: 1,
+        title: 'Temporada 1: O Inverno de Ferro',
+        episodes: [
+          {
+            id: 'ep-1-1',
+            seriesId: 'ser-1',
+            seasonNumber: 1,
+            episodeNumber: 1,
+            title: 'Ep. 1 - O Despertar da Fortaleza',
+            synopsis: 'Um mensageiro ferido chega aos portões de ferro trazendo um aviso que mudará o destino dos sete reinos para sempre.',
+            duration: '54m',
+            durationMinutes: 54,
+            videoUrl: '/videos/fantasy_stream.mp4',
+            thumbnailUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg'
+          },
+          {
+            id: 'ep-1-2',
+            seriesId: 'ser-1',
+            seasonNumber: 1,
+            episodeNumber: 2,
+            title: 'Ep. 2 - A Noite das Cinzas',
+            synopsis: 'Alianças são testadas após um ataque surpresa aos celeiros reais. Uma traição interna é revelada.',
+            duration: '50m',
+            durationMinutes: 50,
+            videoUrl: '/videos/fantasy_stream.mp4',
+            thumbnailUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg'
+          },
+          {
+            id: 'ep-1-3',
+            seriesId: 'ser-1',
+            seasonNumber: 1,
+            episodeNumber: 3,
+            title: 'Ep. 3 - Juramento de Sangue',
+            synopsis: 'A ordem dos cavaleiros parte para o vale das brumas enquanto o conselho vota pela sucessão da coroa.',
+            duration: '58m',
+            durationMinutes: 58,
+            videoUrl: '/videos/fantasy_stream.mp4',
+            thumbnailUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg'
+          },
+          {
+            id: 'ep-1-4',
+            seriesId: 'ser-1',
+            seasonNumber: 1,
+            episodeNumber: 4,
+            title: 'Ep. 4 - O Cerco Final',
+            synopsis: 'As trompas de guerra soam nos desfiladeiros. O destino de Ferro será decidido no pátio dos leões.',
+            duration: '62m',
+            durationMinutes: 62,
+            videoUrl: '/videos/fantasy_stream.mp4',
+            thumbnailUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg'
+          }
+        ]
+      },
+      {
+        seasonNumber: 2,
+        title: 'Temporada 2: O Fogo Renascido',
+        episodes: [
+          {
+            id: 'ep-2-1',
+            seriesId: 'ser-1',
+            seasonNumber: 2,
+            episodeNumber: 1,
+            title: 'Ep. 1 - Ressurgimento das Cinzas',
+            synopsis: 'Com a fortaleza semi-destruída, sobreviventes buscam as lendas dos antigos deuses nas profundezas.',
+            duration: '55m',
+            durationMinutes: 55,
+            videoUrl: '/videos/fantasy_stream.mp4',
+            thumbnailUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg'
+          },
+          {
+            id: 'ep-2-2',
+            seriesId: 'ser-1',
+            seasonNumber: 2,
+            episodeNumber: 2,
+            title: 'Ep. 2 - A Batalha das Montanhas',
+            synopsis: 'O exército do sul alcança a fronteira montanhosa. Uma emboscada decisiva tem início.',
+            duration: '52m',
+            durationMinutes: 52,
+            videoUrl: '/videos/fantasy_stream.mp4',
+            thumbnailUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'ser-2',
+    title: 'Protocolo Subterrâneo: Conexão Hacker',
+    synopsis: 'Uma célula secreta de ciberativistas descobre um código de vigilância biométrica implantado nos sistemas financeiros globais.',
+    year: 2024,
+    genre: ['Suspense', 'Ficção científica', 'Drama'],
+    ageRating: '16',
+    seasonsCount: 1,
+    totalEpisodes: 4,
+    rating: 8.9,
+    posterUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg',
+    backdropUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg',
+    featured: false,
+    cast: ['Rami Malek', 'Christian Slater', 'Carly Chaikin'],
+    creator: 'Sam Esmail',
+    views: 184000,
+    addedAt: '2026-02-10',
+    seasons: [
+      {
+        seasonNumber: 1,
+        title: 'Temporada 1: Criptografia Zero',
+        episodes: [
+          {
+            id: 'ep-ser2-1',
+            seriesId: 'ser-2',
+            seasonNumber: 1,
+            episodeNumber: 1,
+            title: 'Ep. 1 - Hello_World.exe',
+            synopsis: 'Um engenheiro de segurança descobre rastros de uma intrusão profunda em servidores de Wall Street.',
+            duration: '48m',
+            durationMinutes: 48,
+            videoUrl: '/videos/scifi_stream.mp4',
+            thumbnailUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg'
+          },
+          {
+            id: 'ep-ser2-2',
+            seriesId: 'ser-2',
+            seasonNumber: 1,
+            episodeNumber: 2,
+            title: 'Ep. 2 - Chave Privada',
+            synopsis: 'A equipe se reúne em um bunker clandestino para decodificar o arquivo mestre vazado.',
+            duration: '45m',
+            durationMinutes: 45,
+            videoUrl: '/videos/scifi_stream.mp4',
+            thumbnailUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg'
+          }
+        ]
+      }
+    ]
+  }
+];
+
+export const initialChannels: LiveChannel[] = [
+  {
+    id: 'ch-1',
+    channelNumber: 101,
+    name: 'NetTV Sports HD',
+    category: 'Esportes',
+    logoUrl: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: '/src/assets/images/live_tv_sports_action_1794036938580.jpg',
+    streamUrl: '/videos/sports_stream.mp4',
+    isOnline: true,
+    resolution: '1080p',
+    currentProgram: {
+      title: 'UEFA Champions: Roma vs Milan (Ao Vivo)',
+      start: '21:00',
+      end: '23:30',
+      synopsis: 'Grande clássico europeu das oitavas de final direto do Stadio Olimpico.',
+      progressPercentage: 68
+    },
+    nextProgram: {
+      title: 'Giro da Rodada & Melhores Momentos',
+      start: '23:30',
+      end: '00:30'
+    },
+    views: 48900
+  },
+  {
+    id: 'ch-2',
+    channelNumber: 102,
+    name: 'NetTV News 24h',
+    category: 'Notícias',
+    logoUrl: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg',
+    streamUrl: '/videos/scifi_stream.mp4',
+    isOnline: true,
+    resolution: '1080p',
+    currentProgram: {
+      title: 'Jornal Global Edição da Noite',
+      start: '22:00',
+      end: '23:30',
+      synopsis: 'Cobertura completa dos principais fatos econômicos, geopolíticos e climáticos do mundo.',
+      progressPercentage: 45
+    },
+    nextProgram: {
+      title: 'Mundo Digital & Inovação',
+      start: '23:30',
+      end: '00:00'
+    },
+    views: 31200
+  },
+  {
+    id: 'ch-3',
+    channelNumber: 103,
+    name: 'Cine Action Plus',
+    category: 'Filmes',
+    logoUrl: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: '/src/assets/images/movie_poster_action_1794036937639.jpg',
+    streamUrl: '/videos/action_stream.mp4',
+    isOnline: true,
+    resolution: '4K',
+    currentProgram: {
+      title: 'Supercine Especial: Operação Subterrânea',
+      start: '21:30',
+      end: '23:45',
+      synopsis: 'Adrenalina pura com os melhores filmes de ação do cinema contemporâneo.',
+      progressPercentage: 80
+    },
+    nextProgram: {
+      title: 'Madrugada de Suspense: Linha Mortal',
+      start: '23:45',
+      end: '01:30'
+    },
+    views: 52100
+  },
+  {
+    id: 'ch-4',
+    channelNumber: 104,
+    name: 'DocuTerra Planet',
+    category: 'Documentários',
+    logoUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&auto=format&fit=crop&q=80',
+    streamUrl: '/videos/fantasy_stream.mp4',
+    isOnline: true,
+    resolution: '1080p',
+    currentProgram: {
+      title: 'Oceanos Secretos: As Frentes Abissais',
+      start: '22:15',
+      end: '23:45',
+      synopsis: 'Expedições submarinas inéditas descobrindo espécies bioluminescentes.',
+      progressPercentage: 35
+    },
+    nextProgram: {
+      title: 'Vulcões Vivos da Islândia',
+      start: '23:45',
+      end: '00:45'
+    },
+    views: 24500
+  },
+  {
+    id: 'ch-5',
+    channelNumber: 105,
+    name: 'Kids Toon Brasil',
+    category: 'Infantil',
+    logoUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1600&auto=format&fit=crop&q=80',
+    streamUrl: '/videos/scifi_stream.mp4',
+    isOnline: true,
+    resolution: '1080p',
+    currentProgram: {
+      title: 'As Aventuras da Floresta Encantada',
+      start: '21:00',
+      end: '22:30',
+      synopsis: 'Muita diversão, amizade e trapalhadas com os bichos da floresta.',
+      progressPercentage: 90
+    },
+    nextProgram: {
+      title: 'Clube dos Desenhos Clássicos',
+      start: '22:30',
+      end: '00:00'
+    },
+    views: 19800
+  },
+  {
+    id: 'ch-6',
+    channelNumber: 106,
+    name: 'HitMusic Lounge TV',
+    category: 'Música',
+    logoUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80',
+    streamUrl: '/videos/action_stream.mp4',
+    isOnline: true,
+    resolution: '1080p',
+    currentProgram: {
+      title: 'Top 50 Hits Globais & Eletro Session',
+      start: '22:00',
+      end: '00:00',
+      synopsis: 'Os clipes mais tocados nas paradas internacionais com som cristalino.',
+      progressPercentage: 50
+    },
+    nextProgram: {
+      title: 'Madrugada Acústica Ao Vivo',
+      start: '00:00',
+      end: '02:00'
+    },
+    views: 37400
+  },
+  {
+    id: 'ch-7',
+    channelNumber: 107,
+    name: 'TV Cultura & Saber',
+    category: 'Abertos',
+    logoUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: '/src/assets/images/series_banner_fantasy_1794036936974.jpg',
+    streamUrl: '/videos/fantasy_stream.mp4',
+    isOnline: true,
+    resolution: '1080p',
+    currentProgram: {
+      title: 'Roda Viva: Futuro da Tecnologia',
+      start: '21:30',
+      end: '23:00',
+      synopsis: 'Debate aprofundado com pesquisadores e líderes em inovação tecnológica.',
+      progressPercentage: 60
+    },
+    nextProgram: {
+      title: 'Grandes Teatros do Mundo',
+      start: '23:00',
+      end: '00:30'
+    },
+    views: 18400
+  },
+  {
+    id: 'ch-8',
+    channelNumber: 108,
+    name: 'Entretenimento Pop TV',
+    category: 'Entretenimento',
+    logoUrl: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=200&auto=format&fit=crop&q=80',
+    bannerUrl: '/src/assets/images/hero_scifi_cyberpunk_1794036935679.jpg',
+    streamUrl: '/videos/sports_stream.mp4',
+    isOnline: true,
+    resolution: '720p',
+    currentProgram: {
+      title: 'Show dos Famosos & Bastidores',
+      start: '22:00',
+      end: '23:30',
+      synopsis: 'Entrevistas exclusivas com os astros do cinema e bastidores de produções.',
+      progressPercentage: 40
+    },
+    nextProgram: {
+      title: 'Comédia Stand Up Especial',
+      start: '23:30',
+      end: '01:00'
+    },
+    views: 29800
+  }
+];

@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #08090c;
+    color: #f3f4f6;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Hide scrollbars for slick horizontal carousels while maintaining scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(18, 19, 24, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(28, 30, 38, 0.85);
+  border-color: rgba(229, 9, 20, 0.4);
+}
+
+.neon-glow-red {
+  box-shadow: 0 0 25px -4px rgba(229, 9, 20, 0.5), 0 0 10px -2px rgba(229, 9, 20, 0.3);
+}
+
+.neon-border-red {
+  border-color: #E50914;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+}
+
+/* TV focus ring animation */
+@keyframes tvFocusPulse {
+  0%, 100% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 3px #E50914, 0 10px 25px rgba(229, 9, 20, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 4px #ff3b47, 0 12px 30px rgba(229, 9, 20, 0.7);
+  }
+}
+
+.tv-focus-active {
+  animation: tvFocusPulse 2s infinite ease-in-out;
+  z-index: 30;
+}

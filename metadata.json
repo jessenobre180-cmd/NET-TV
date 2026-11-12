@@ -1,0 +1,6 @@
+{
+  "name": "NetTV - Streaming & TV ao Vivo",
+  "description": "Plataforma premium de entretenimento digital com filmes, séries e canais de TV ao vivo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
